@@ -1,0 +1,27 @@
+<form [formGroup]="produitForm" (ngSubmit)="onSubmit()">
+    <label>
+        Nom:
+        <input type="text" formControlName="nom" />
+    </label>
+
+    <label>
+        Prix:
+        <input type="number" formControlName="prix" step="0.01" min="0" />
+    </label>
+
+    <label>
+        Quantite:
+        <input type="number" formControlName="quantite" />
+    </label>
+
+    <label>
+        Categorie:
+        <select formControlName="id_categorie" type="number">
+            <option *ngFor="let categorie of categories" [value]="categorie.id">
+                {{ categorie.nom }}
+            </option>
+        </select>
+    </label>
+
+    <button type="submit">Creer</button>
+</form>
